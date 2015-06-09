@@ -1,12 +1,7 @@
-var crypto = require("crypto");
+var kblib = require("kb-signin");
 
 exports.handler = function (event, context) {
-    var siteId = "jzila.blog";
-	var random = crypto.randomBytes(64).toString('base64');
-
-	var blob = {
-		siteId: siteId,
-		token: random,
-	};
+    var kbSignin = new kblib.KeybaseSignin();
+    var blob = kbSignin.generateBlob("jzila.blog");
     context.succeed(blob);
 };

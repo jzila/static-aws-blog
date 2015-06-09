@@ -1,0 +1,12 @@
+{
+    "name": "kb-get-blob",
+    "description": "Keybase Signing Blob",
+    "version": "0.1.0",
+    "dependencies": {
+        "kb-signin": "git://github.com/jzila/kb-signin"
+    },
+    "engines": {
+        "node": "0.10.x",
+        "npm": "1.x"
+    }
+}
