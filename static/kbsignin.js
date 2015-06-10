@@ -1,14 +1,14 @@
 var kb_user_blob_id = "kb-user-blob";
 var kb_signature_blob_id = "kb-signature-blob";
 
-var createKbElements = function (blob) {
+function createKbElements(blob) {
 	var input_string = "<input type=\"text\" style=\"width: 1px !important; height: 1px !important; position:absolute !important; top:-100px !important; left: -100px !important;\" />";
 	$(input_string).attr("id", "kb-login-blob").prependTo($("body")).val(JSON.stringify(blob));
 	$(input_string).attr("id", kb_user_blob_id).prependTo($("body"));
 	$(input_string).attr("id", kb_signature_blob_id).prependTo($("body"));
 };
 
-var kbUserChange = function(handleValidUser, handleInvalidUser) {
+function kbUserChange(handleValidUser, handleInvalidUser) {
     return function() {
         var val;
 
@@ -21,7 +21,7 @@ var kbUserChange = function(handleValidUser, handleInvalidUser) {
     }
 };
 
-var signatureChange = function (sigVerifyFunc) {
+function signatureChange(sigVerifyFunc) {
     return function() {
         var val;
 
@@ -41,7 +41,7 @@ var signatureChange = function (sigVerifyFunc) {
     };
 };
 
-var getBlob = function (getBlobFunc, signatureVerifyFunc, handleValidUser, handleInvalidUser) {
+function getBlob(getBlobFunc, signatureVerifyFunc, handleValidUser, handleInvalidUser) {
     getBlobFunc(function (blob) {
         createKbElements(blob);
 
